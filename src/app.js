@@ -3,14 +3,10 @@ const bodyParser = require('body-parser');
 const v1Router = require("./routes/v1/index")
 const pkg = require("../package.json")
 
-// DB conection
-require('./db/mongooseConnection')
-
 // Initialization
 const app = express()
 
 // Settings
-const PORT = process.env.PORT || 5000;
 app.set('pkg', pkg);
 
 // Middlewares
@@ -34,10 +30,4 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', v1Router);
 
-app.listen(PORT, () => {
-    console.log(`
-    Server listen.
-    http://localhost:${PORT}/
-    http://localhost:${PORT}/api/v1
-    `)
-})
+module.exports = app;
