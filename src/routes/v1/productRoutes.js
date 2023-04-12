@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../../controllers/userController");
+const { jwtAuth } = require("../../middleware/jwtVerify");
+const productController = require("../../controllers/productController");
 
-router.get("/", userController.getAllUsers);
-router.get("/:userId", userController.getUserById);
-router.post("/", userController.createUser);
-router.patch("/:userId", userController.updateUserById);
-router.delete("/:userId", userController.deleteUserById);
+router.get("/", productController.getProducts);
+router.get("/:id", productController.getProductById);
+router.post("/", jwtAuth, productController.createProduct);
+router.put("/:id", jwtAuth, productController.updateProduct);
+router.delete("/:id", jwtAuth, productController.deleteProduct);
 
 module.exports = router;

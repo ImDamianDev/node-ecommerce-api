@@ -4,6 +4,7 @@ const router = express.Router();
 // Importar el archivo de enrutador
 const userRoutes = require('./userRoutes');
 const authRoutes = require('./authRoutes');
+const productsRoutes = require('./productRoutes');
 
 router.get("/", (req, res) => {
     res.status(200)
@@ -18,7 +19,8 @@ router.get("/", (req, res) => {
 })
 
 // Agregar las rutas al enrutador principal
-router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
+router.use("/users", userRoutes);
+router.use("/products", productsRoutes);
 
 module.exports = router;

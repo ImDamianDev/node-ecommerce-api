@@ -32,12 +32,6 @@ const verifyUser = async (email, password) => {
   return user;
 };
 
-//const createUser = async (user) => {
-//  const newUser = new User(user);
-//  await newUser.save();
-//  return newUser;
-//};
-
 const createUser = async (user) => {
   const { name, email, password } = user;
 
