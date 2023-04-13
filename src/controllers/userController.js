@@ -8,7 +8,7 @@ const getAllUsers = async (req, res) => {
             name: user.name,
             email: user.email,
         }));
-        res.status(200).json(sanitizedUsers);
+        res.status(200).json(users);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -60,8 +60,9 @@ const createUser = async (req, res) => {
 
 // Actualizar un usuario existente
 const updateUserById = async (req, res) => {
+    console.log(req.params.userId)
     try {
-        const user = await userService.updateUserById(req.params.id, req.body);
+        const user = await userService.updateUserById(req.params.userId, req.body);
         if (!user) {
             res.status(404).json({ message: 'User not found' });
         } else {

@@ -1,20 +1,19 @@
 const jwt = require('jsonwebtoken')
-const { KEY } = require('../config')
 
 const jwtVerify = (token,cb) => {
-    jwt.verify(token, KEY,(err,decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY,(err,decoded) => {
         cb(err,decoded)
     })
     
 }
 
-const jwtSign = ({id,name,username}) => {
+const jwtSign = ({id,name,roles}) => {
     const payload = {
        id,
        name,
-       username,
+       roles,
     }
-    return jwt.sign(payload, KEY)
+    return jwt.sign(payload, process.env.SECRET_KEY)
 }
 
 module.exports = {

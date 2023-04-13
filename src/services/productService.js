@@ -19,6 +19,8 @@ const getProductById = async (id) => {
 };
 
 const createProduct = async (newProduct) => {
+  console.log("new product - productService")
+  console.log(newProduct)
   try {
     const product = new Product(newProduct);
     const savedProduct = await product.save();

@@ -11,7 +11,8 @@ jwtAuth.use((req, res, next) => {
 			if (err) {
 				return res.status(401).json({ message: err.message }).end()    
 			} else {
-				req.jwtUser = decoded;    
+				req.jwtUser = decoded;
+				//console.log(decoded)    
 				next();
 			}
 		})

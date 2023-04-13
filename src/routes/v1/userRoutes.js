@@ -5,7 +5,7 @@ const userController = require("../../controllers/userController");
 
 router.get("/", userController.getAllUsers);
 router.get("/:userId", userController.getUserById);
-router.post("/", jwtAuth, userController.createUser);
+router.post("/", userController.createUser);
 router.put("/:userId", jwtAuth, userController.updateUserById);
 router.delete("/:userId", jwtAuth, userController.deleteUserById);
 

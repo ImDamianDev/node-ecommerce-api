@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 const getAllUsers = async () => {
   const users = await User.find();
@@ -18,7 +18,7 @@ const findUserByEmail = async (email) => {
 
 const verifyUser = async (email, password) => {
   const user = await User.findOne({ email });
-
+  console.log(user);
   if (!user) {
     throw new Error("Invalid user");
   }

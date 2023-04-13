@@ -7,6 +7,7 @@ const login = async (req, res) => {
 
     // Verifica que el usuario existe y las contraseñas coinciden
     const user = await userService.verifyUser(email, password);
+
     if (!user) {
       return res
         .status(401)
